@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d0d14">
+<title>Abdul Rehman 🤝 The Homie Hall of Fame</title>
+<style>
+:root{--bg:#0d0d14;--bg2:#15151f;--tx:#eceaf6;--mu:#a9a6c0;--pu:#8b5cf6;--bl:#38bdf8;--pk:#e879f9;--gl:rgba(255,255,255,.06);--bd:rgba(255,255,255,.12);--r:20px}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif;line-height:1.6;overflow-x:hidden;min-height:100vh}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(60% 40% at 15% 0%,rgba(139,92,246,.28),transparent 70%),radial-gradient(50% 40% at 90% 30%,rgba(56,189,248,.18),transparent 70%),radial-gradient(60% 40% at 30% 100%,rgba(232,121,249,.14),transparent 70%)}
+.orbs{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.orbs i{position:absolute;border-radius:50%;background:var(--pu);opacity:.5;filter:blur(1px);animation:fl 14s ease-in-out infinite}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-40px)}}
+section{padding:72px 18px;max-width:960px;margin:auto}
+h1,h2,h3{line-height:1.1;letter-spacing:-.02em}
+h2{font-size:clamp(1.7rem,6vw,2.6rem);margin-bottom:10px}
+.sub{color:var(--mu);margin-bottom:30px;max-width:60ch}
+.grad{background:linear-gradient(90deg,var(--pu),var(--bl),var(--pk));-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{background:var(--gl);border:1px solid var(--bd);border-radius:var(--r);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.btn{min-height:52px;padding:14px 24px;border:0;border-radius:999px;font:inherit;font-weight:700;color:#fff;cursor:pointer;background:linear-gradient(135deg,var(--pu),#5b6cf6);box-shadow:0 8px 30px rgba(139,92,246,.4);transition:transform .15s,box-shadow .2s}
+.btn:active{transform:scale(.96)}
+.btn.alt{background:var(--gl);border:1px solid var(--bd);box-shadow:none}
+:focus-visible{outline:3px solid var(--bl);outline-offset:3px}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.rv.on{opacity:1;transform:none}
+/* hero */
+#hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:18px}
+.badge{border:1px solid rgba(56,189,248,.6);color:var(--bl);padding:8px 16px;border-radius:999px;font-weight:700;font-size:.85rem;background:rgba(56,189,248,.08);box-shadow:0 0 22px rgba(56,189,248,.35);cursor:pointer;font-family:inherit;animation:pulse 3s infinite}
+@keyframes pulse{50%{box-shadow:0 0 36px rgba(56,189,248,.7)}}
+#title{font-size:clamp(2.6rem,13vw,6.5rem);font-weight:900;cursor:pointer;user-select:none;animation:ttl 1.4s cubic-bezier(.2,.8,.2,1) both}
+@keyframes ttl{from{opacity:0;letter-spacing:.3em;filter:blur(12px)}}
+.tag{font-size:clamp(1.1rem,4vw,1.6rem);font-weight:700}
+.hero-p{color:var(--mu);max-width:52ch}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+#hero>*:not(#title){animation:up .8s .5s both}
+@keyframes up{from{opacity:0;transform:translateY(20px)}}
+/* stats */
+.stats{display:grid;gap:14px;grid-template-columns:1fr}
+.stat{padding:18px}
+.stat .top{display:flex;justify-content:space-between;align-items:center;gap:10px;font-weight:700}
+.val{font-size:1.3rem;color:var(--bl)}
+.bar{height:10px;background:rgba(255,255,255,.08);border-radius:9px;margin:10px 0;overflow:hidden}
+.bar b{display:block;height:100%;width:0;border-radius:9px;background:linear-gradient(90deg,var(--pu),var(--bl));box-shadow:0 0 12px var(--pu);transition:width 1.6s cubic-bezier(.2,.8,.2,1)}
+.stat p{color:var(--mu);font-size:.9rem}
+/* cards */
+.cards{display:grid;gap:16px;grid-template-columns:1fr}
+.card{padding:24px;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s,border-color .3s}
+.card .ic{font-size:2rem;display:inline-block;transition:transform .4s}
+.card h3{margin:10px 0 8px;font-size:1.2rem}
+.card p{color:var(--mu)}
+.c1:hover,.c1:focus-within{transform:translateY(-6px);box-shadow:0 14px 40px rgba(139,92,246,.4)}
+.c2:hover{transform:rotate(-1.5deg) scale(1.02);border-color:var(--pk)}.c2:hover .ic{transform:rotate(25deg) scale(1.3)}
+.c3:hover{box-shadow:0 0 0 2px var(--bl),0 0 36px rgba(56,189,248,.35)}.c3:hover .ic{animation:beat .7s infinite}
+@keyframes beat{50%{transform:scale(1.3)}}
+.c4::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.14) 50%,transparent 65%);transform:translateX(-100%);transition:transform .8s}
+.c4:hover::after{transform:translateX(100%)}.c4:hover{transform:translateY(-4px) scale(1.02)}
+/* awards */
+.awards{display:grid;gap:14px}
+.award{width:100%;text-align:left;font:inherit;color:inherit;padding:18px;cursor:pointer;display:grid;grid-template-columns:auto 1fr;gap:4px 16px;align-items:center}
+.troph{grid-row:span 2;width:64px;height:64px;border-radius:50%;display:grid;place-items:center;font-size:1.9rem;background:radial-gradient(circle at 30% 25%,#ffe9a8,#d9a441 60%,#8a5a12);box-shadow:0 0 20px rgba(217,164,65,.4)}
+.award strong{font-size:1.05rem}
+.award .d{grid-column:2;max-height:0;opacity:0;overflow:hidden;color:var(--mu);transition:max-height .5s,opacity .5s;font-size:.95rem}
+.award[aria-expanded=true] .d{max-height:140px;opacity:1}
+.award[aria-expanded=true] .troph{animation:pop .6s}
+@keyframes pop{40%{transform:scale(1.25) rotate(-8deg)}}
+.award.final{border-color:#e8c15a;background:linear-gradient(135deg,rgba(232,193,90,.16),rgba(139,92,246,.18));position:relative;overflow:hidden}
+.award.final .troph{width:80px;height:80px;font-size:2.4rem;animation:glow 2.5s infinite}
+@keyframes glow{50%{box-shadow:0 0 50px rgba(255,214,100,.9)}}
+/* roast */
+.roast{text-align:center}
+.rbox{min-height:130px;display:grid;place-items:center;padding:24px;margin:20px 0;font-size:clamp(1.1rem,4.5vw,1.5rem);font-weight:700}
+.rbox.s{animation:shake .4s}
+@keyframes shake{25%{transform:translateX(-6px) rotate(-1deg)}75%{transform:translateX(6px) rotate(1deg)}}
+.cnt{color:var(--mu);margin-top:12px;min-height:1.5em}
+/* letter */
+.letter{padding:clamp(20px,5vw,48px);position:relative;box-shadow:0 0 80px rgba(139,92,246,.2)}
+#ltxt{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.02rem,3.8vw,1.25rem);line-height:1.8;white-space:pre-wrap;min-height:8em}
+#ltxt.typing::after{content:"▍";color:var(--bl);animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+.sig{font-size:clamp(1.5rem,6vw,2.3rem);font-weight:900;margin-top:20px;opacity:0;transform:scale(.9);transition:opacity 1s,transform 1s}
+.sig.on{opacity:1;transform:none}
+.skip{margin-top:14px;font-size:.85rem;min-height:44px}
+/* achievements */
+.ach{display:grid;gap:12px;grid-template-columns:1fr}
+.a{display:flex;gap:14px;align-items:center;padding:16px;font:inherit;color:var(--mu);text-align:left;cursor:pointer;width:100%;transition:.3s}
+.a .ai{font-size:1.8rem;filter:grayscale(1);opacity:.6;transition:.3s}
+.a strong{display:block;color:var(--tx)}
+.a.lit{border-color:var(--bl);box-shadow:0 0 28px rgba(56,189,248,.45);color:var(--tx);background:rgba(56,189,248,.1)}
+.a.lit .ai{filter:none;opacity:1;transform:scale(1.15)}
+.a.lock{border-style:dashed}
+.a.lock.lit{border-color:var(--pk);box-shadow:0 0 40px rgba(232,121,249,.6);background:rgba(232,121,249,.12)}
+/* last */
+#last{text-align:center;min-height:90svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px}
+#last h2{font-size:clamp(1.8rem,7.5vw,3.4rem)}
+.fin{font-weight:900;letter-spacing:.04em;color:var(--pk)}
+#oneMore{max-width:34ch;font-size:1.2rem;font-weight:700;opacity:0;transition:opacity 1.2s;min-height:3em}
+#oneMore.on{opacity:1}
+.hid{opacity:.25;background:none;border:0;font-size:1.4rem;min-width:44px;min-height:44px;cursor:pointer;transition:opacity .3s}
+.hid:hover,.hid:focus-visible{opacity:1}
+footer{text-align:center;padding:30px 18px 60px;color:var(--mu);font-size:.85rem}
+/* overlays */
+.ov{position:fixed;inset:0;z-index:50;display:none;place-items:center;background:rgba(5,5,10,.8);padding:20px}
+.ov.on{display:grid}
+.pop{max-width:420px;padding:28px;text-align:center;background:var(--bg2);animation:pp .35s cubic-bezier(.2,1.4,.4,1)}
+@keyframes pp{from{transform:scale(.7);opacity:0}}
+.pop p{font-size:1.25rem;font-weight:700;margin-bottom:18px}
+#celeb{background:radial-gradient(circle,rgba(139,92,246,.5),rgba(5,5,10,.96));text-align:center;flex-direction:column}
+#celeb h2{font-size:clamp(2rem,9vw,4rem);animation:pp .8s}
+.fx{position:fixed;z-index:60;pointer-events:none;font-size:1.6rem;animation:rise 2.4s ease-out forwards}
+@keyframes rise{from{opacity:1;transform:translateY(0) scale(.6)}to{opacity:0;transform:translateY(-70vh) scale(1.4) rotate(20deg)}}
+#fade{position:fixed;inset:0;z-index:40;background:#000;opacity:0;pointer-events:none;transition:opacity 2.5s}
+#fade.on{opacity:.82}
+@media(min-width:700px){.stats,.cards{grid-template-columns:1fr 1fr}.ach{grid-template-columns:1fr 1fr}section{padding:100px 28px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="orbs" aria-hidden="true"><i style="left:8%;top:70%;width:10px;height:10px"></i><i style="left:80%;top:20%;width:14px;height:14px;background:var(--bl);animation-delay:-4s"></i><i style="left:50%;top:85%;width:8px;height:8px;background:var(--pk);animation-delay:-8s"></i><i style="left:25%;top:25%;width:6px;height:6px;background:var(--bl);animation-delay:-2s"></i><i style="left:92%;top:75%;width:9px;height:9px;animation-delay:-6s"></i></div>
+
+<main>
+<section id="hero">
+  <button class="badge" id="badge" aria-label="Official homie status verified">OFFICIAL HOMIE STATUS: VERIFIED ✓</button>
+  <h1 id="title" class="grad">ABDUL REHMAN.</h1>
+  <p class="tag">Certified Homie. Professional Menace. Legendary Brother.</p>
+  <p class="hero-p">Some people enter your life and make everything a little more chaotic, a lot more hilarious, and genuinely better. Bro, this one's for you.</p>
+  <div class="btns">
+    <button class="btn" id="enter">Enter the Hall of Fame 🏆</button>
+    <button class="btn alt" id="why">Why Am I Getting Appreciated? 💀</button>
+  </div>
+</section>
+
+<section id="stats">
+  <h2 class="rv">The Homie's Stats 💀</h2>
+  <p class="sub rv">Totally scientific. Completely made up. Weirdly accurate.</p>
+  <div class="stats" id="statGrid"></div>
+</section>
+
+<section id="why-sec">
+  <h2 class="rv">Why this guy is a legend ❤️</h2>
+  <p class="sub rv">Four reasons. There are more, but the website has a file size limit.</p>
+  <div class="cards">
+    <article class="card glass c1 rv"><span class="ic">🤝</span><h3>The Real One</h3><p>Not everybody shows up when you need a hand. You helped me with something important, and I won't forget that.</p></article>
+    <article class="card glass c2 rv"><span class="ic">😂</span><h3>The Comedy Department</h3><p>Life would be significantly less entertaining without your random jokes, your chill energy, and the nonsense we get up to.</p></article>
+    <article class="card glass c3 rv"><span class="ic">❤️</span><h3>The Brotherhood</h3><p>Beyond the jokes and roasting, you're my brother. That means more to me than I probably say out loud.</p></article>
+    <article class="card glass c4 rv"><span class="ic">🔓</span><h3>The Unlocked Achievement</h3><p>Helped create something special for someone I love. Accidentally earned his own appreciation website in return. Bro's career is taking off.</p></article>
+  </div>
+</section>
+
+<section id="awards">
+  <h2 class="rv">Official Brotherhood Awards 🏆</h2>
+  <p class="sub rv">Tap a trophy to see why he won. The judges were me. Only me.</p>
+  <div class="awards" id="awardList"></div>
+</section>
+
+<section id="roast" class="roast">
+  <h2 class="rv">We appreciate you, but let's not get too emotional 💀</h2>
+  <p class="sub rv" style="margin-inline:auto">Harmless roasts only. Bro has feelings (allegedly).</p>
+  <div class="rbox glass" id="rbox" aria-live="polite">Press the button. Bro can handle it.</div>
+  <div class="btns" style="justify-content:center">
+    <button class="btn" id="roastBtn">ROAST THE HOMIE 🔥</button>
+    <button class="btn alt" id="respect">Respect +100 🤝</button>
+  </div>
+  <p class="cnt" id="cnt"></p>
+</section>
+
+<section id="letter">
+  <h2 class="rv">A message from your bro ❤️</h2>
+  <div class="letter glass rv">
+    <div id="ltxt" role="document" aria-live="off"></div>
+    <p class="sig grad" id="sig">— Your Homie, Always.</p>
+    <button class="btn alt skip" id="skip">Skip typing</button>
+  </div>
+</section>
+
+<section id="ach">
+  <h2 class="rv">Our brotherhood is a lifetime achievement 🎮</h2>
+  <p class="sub rv">Tap to light them up. There's a locked one too. Keep poking it.</p>
+  <div class="ach" id="achList"></div>
+</section>
+
+<section id="last">
+  <h2 class="grad rv">REAL ONES DON'T NEED A REASON TO BE APPRECIATED.</h2>
+  <p class="sub rv" style="margin:0">Thanks for being you, Abdul. This website is just a small way of saying I appreciate you, bro.</p>
+  <p class="fin rv">HOMIES BY CHOICE. BROTHERS FOR LIFE. ❤️</p>
+  <button class="btn" id="last1">ONE LAST THING 👀</button>
+  <p id="oneMore" aria-live="polite"></p>
+  <button class="hid" id="hidTroph" aria-label="Hidden trophy">🏆</button>
+</section>
+</main>
+<footer>Made by one homie for another. No frameworks were harmed. 🤝</footer>
+
+<div class="ov" id="ov" role="dialog" aria-modal="true"><div class="pop glass"><p id="ovTxt"></p><button class="btn" id="ovClose">Got it 💀</button></div></div>
+<div class="ov" id="celeb" role="dialog" aria-modal="true"><h2 class="grad">ABDUL REHMAN HAS OFFICIALLY BEEN DECLARED A LEGEND.</h2><button class="btn" id="celebClose" style="margin-top:26px">Respect 🤝</button></div>
+<div id="fade"></div>
+
+<script>
+(function(){
+"use strict";
+var $=function(s){return document.querySelector(s)};
+var RM=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+var lastFocus=null;
+
+/* overlays */
+function openOv(el,txt){lastFocus=document.activeElement;if(txt)$("#ovTxt").textContent=txt;el.classList.add("on");var b=el.querySelector("button");if(b)b.focus()}
+function closeOv(el){el.classList.remove("on");if(lastFocus)lastFocus.focus()}
+$("#ovClose").onclick=function(){closeOv($("#ov"))};
+$("#celebClose").onclick=function(){closeOv($("#celeb"))};
+$("#ov").onclick=function(e){if(e.target===this)closeOv(this)};
+document.addEventListener("keydown",function(e){if(e.key==="Escape"){closeOv($("#ov"));closeOv($("#celeb"))}});
+
+/* floating emoji burst */
+function burst(list,n,x,y){
+  if(RM)return;
+  for(var i=0;i<n;i++){
+    var s=document.createElement("span");s.className="fx";
+    s.textContent=list[i%list.length];
+    s.style.left=(x!=null?x+(Math.random()*80-40):Math.random()*92)+"%";
+    s.style.top=(y!=null?y:70+Math.random()*25)+"%";
+    s.style.animationDelay=(Math.random()*.6)+"s";
+    document.body.appendChild(s);
+    setTimeout(function(el){return function(){el.remove()}}(s),3200);
+  }
+}
+
+/* hero */
+$("#enter").onclick=function(){$("#stats").scrollIntoView({behavior:RM?"auto":"smooth"})};
+$("#why").onclick=function(){openOv($("#ov"),"Bro thought he was opening a normal website 💀🙏")};
+var tc=0,tt;
+$("#title").onclick=function(){
+  tc++;clearTimeout(tt);tt=setTimeout(function(){tc=0},1200);
+  if(tc>=5){tc=0;openOv($("#ov"),"Secret #1 found 👀 Yes, the title is clickable. No, there is no prize. Just respect.")}
+};
+var bc=0,bt;
+$("#badge").onclick=function(){
+  bc++;clearTimeout(bt);bt=setTimeout(function(){bc=0},1200);
+  if(bc>=3){bc=0;openOv($("#celeb"));burst(["🏆","❤️","🤝","💀","👑"],18)}
+};
+
+/* reveal on scroll */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("on");io.unobserve(e.target)}})},{threshold:.15});
+document.querySelectorAll(".rv").forEach(function(el){io.observe(el)});
+
+/* stats */
+var stats=[
+ ["🧊","Chill Level",100,"/100","Calm in situations that should not be calm."],
+ ["💥","Comedy Damage",96,"CRITICAL","One joke away from a coughing fit."],
+ ["🛡️","Homie Reliability",98,"LEGENDARY","Shows up when it counts. Verified."],
+ ["🎲","Random Nonsense",100,"UNLIMITED","Infinite supply. No refunds."],
+ ["🔥","Brother Energy",100,"MAXIMUM","Off the charts. The chart gave up."],
+ ["😂","Ability to Make Me Laugh",99,"OVERPOWERED","Needs a nerf. Will not be nerfed."]
+];
+var sg=$("#statGrid");
+stats.forEach(function(s){
+  var d=document.createElement("div");d.className="stat glass rv";
+  d.innerHTML='<div class="top"><span>'+s[0]+" "+s[1]+'</span><span class="val" data-n="'+s[2]+'" data-l="'+s[3]+'">0</span></div><div class="bar"><b data-w="'+s[2]+'"></b></div><p>'+s[4]+"</p>";
+  sg.appendChild(d);io.observe(d);
+});
+var so=new IntersectionObserver(function(es){es.forEach(function(e){
+  if(!e.isIntersecting)return;so.unobserve(e.target);
+  var v=e.target.querySelector(".val"),b=e.target.querySelector("b"),n=+v.dataset.n,l=v.dataset.l;
+  b.style.width=n+"%";
+  function fin(){v.textContent=l==="/100"?n+"/100":l}
+  if(RM){fin();return}
+  var t0=null;
+  function step(t){if(!t0)t0=t;var p=Math.min((t-t0)/1400,1);v.textContent=Math.round(n*p);if(p<1)requestAnimationFrame(step);else fin()}
+  requestAnimationFrame(step);
+})},{threshold:.4});
+sg.querySelectorAll(".stat").forEach(function(el){so.observe(el)});
+
+/* awards */
+var aw=[
+ ["🏆","The Certified Homie Award","Awarded for outstanding performance in being a homie. No competition. Nobody else applied."],
+ ["💀","The Professional Troublemaker Award","For consistent, reliable, and slightly concerning levels of chaos."],
+ ["🤝","The Always Got My Back Award","When it mattered, he showed up. That's the whole award."],
+ ["😂","The Unofficial CEO of Making Me Laugh","Runs the comedy department with zero qualifications and 100% results."],
+ ["👑","The Legendary Brother Award","The big one. Jokes aside, there's only one Abdul, and he's my brother. Respect."]
+];
+var al=$("#awardList");
+aw.forEach(function(a,i){
+  var b=document.createElement("button");
+  b.className="award glass rv"+(i===4?" final":"");b.setAttribute("aria-expanded","false");
+  b.innerHTML='<span class="troph">'+a[0]+"</span><strong>"+a[1]+'</strong><span class="d">'+a[2]+"</span>";
+  b.onclick=function(){
+    var open=b.getAttribute("aria-expanded")==="true";
+    b.setAttribute("aria-expanded",open?"false":"true");
+    if(!open&&i===4){var r=b.getBoundingClientRect();burst(["👑","✨","🏆"],9,(r.left+r.width/2)/innerWidth*100,(r.top/innerHeight)*100+8)}
+  };
+  al.appendChild(b);io.observe(b);
+});
+
+/* roast */
+var roasts=[
+ "Bro has legendary status and still acts like an NPC sometimes.",
+ "Your friendship stats are maxed out, but your seriousness stat is missing.",
+ "This man helped build a website and somehow became the main character.",
+ "Bro opened an appreciation website and now thinks he's famous.",
+ "100% homie material. 0% peace and quiet.",
+ "Bro's loading speed for good ideas: buffering. Loading speed for chaos: instant.",
+ "If chill was a currency, he'd still find a way to be broke on common sense.",
+ "He's the reason 'I'll be there in 5 minutes' is considered a flexible term.",
+ "Elite homie. Questionable decision-maker. Great combo honestly.",
+ "He sat in the helpful NPC role for one quest and now wants a statue.",
+ "Bro's brain runs on vibes and about 3% battery.",
+ "Professional menace by day, slightly less professional menace by night.",
+ "His jokes have a 50% hit rate, and the other 50% are funny because they failed.",
+ "Congratulations, you got a whole website. Your ego just bought a bigger house.",
+ "This guy reads the instructions only after everything is already on fire.",
+ "He's the human version of a 'skip tutorial' button.",
+ "Zero stress, zero plans, 100% somehow still fine. Suspicious.",
+ "Bro has main character energy and side quest priorities.",
+ "He'd lose an argument against a wall and still declare victory."
+];
+var last=-1,rc=0;
+$("#roastBtn").onclick=function(){
+  var i;do{i=Math.floor(Math.random()*roasts.length)}while(i===last);last=i;rc++;
+  var b=$("#rbox");b.textContent=roasts[i];b.classList.remove("s");void b.offsetWidth;b.classList.add("s");
+  $("#cnt").textContent="Roasts delivered: "+rc+" 🔥";
+};
+var rp=0;
+$("#respect").onclick=function(){
+  rp+=100;
+  $("#rbox").textContent="Okay okay, roast over. Abdul is a legend, no jokes. (Okay, a few jokes.)";
+  $("#cnt").textContent="Respect given: +"+rp+" 🤝";
+  var r=this.getBoundingClientRect();burst(["🤝","❤️","✨","💯"],10,(r.left+r.width/2)/innerWidth*100,(r.top/innerHeight)*100);
+};
+
+/* letter */
+var msg="Yo Abdul,\n\nI know we joke around, laugh at random stuff, and probably spend more time messing with each other than being serious.\n\nBut I wanted to make something for you because I genuinely appreciate you, bro.\n\nYou helped me out when I was making something special, and that meant a lot to me. You didn't have to make it your problem, but you were there, and I appreciate that more than I probably show.\n\nYou're not just someone I call my brother. You're my homie, someone I can chill with, laugh with, and count on.\n\nI might not say all this every day because, obviously, we're not about to start crying over here 💀, but real talk: I'm glad you're my brother.\n\nThanks for the help, the laughs, the chill vibes, and all the random memories.\n\nNever change, my guy.\n\nLove you, bro. Stay legendary. 🤝❤️";
+var chars=Array.from(msg),li=0,ltimer=null,lt=$("#ltxt"),started=false;
+lt.setAttribute("aria-label",msg);
+function finishLetter(){clearInterval(ltimer);lt.textContent=msg;lt.classList.remove("typing");$("#sig").classList.add("on");$("#skip").style.display="none"}
+function startLetter(){
+  if(started)return;started=true;
+  if(RM){finishLetter();return}
+  lt.classList.add("typing");
+  ltimer=setInterval(function(){li+=3;if(li>=chars.length)finishLetter();else lt.textContent=chars.slice(0,li).join("")},30);
+}
+$("#skip").onclick=function(){started=true;finishLetter()};
+new IntersectionObserver(function(es,o){if(es[0].isIntersecting){startLetter();o.disconnect()}},{threshold:.25}).observe($(".letter"));
+
+/* achievements */
+var ac=[
+ ["🔓","Brotherhood Unlocked","Status: official. No take-backs."],
+ ["😈","Chaos Partners","Dangerous when together. Entertaining when apart."],
+ ["📅","Certified Day-One Energy","Brother energy has always been there."],
+ ["🎬","Legendary Memories in Progress","More loading. Please don't refresh."],
+ ["🎮","Homies Until the Credits Roll","And then we're watching the post-credits scene."]
+];
+var acl=$("#achList");
+ac.forEach(function(a){
+  var b=document.createElement("button");b.className="a glass rv";b.setAttribute("aria-pressed","false");
+  b.innerHTML='<span class="ai">'+a[0]+"</span><span><strong>"+a[1]+"</strong>"+a[2]+"</span>";
+  b.onclick=function(){var on=b.classList.toggle("lit");b.setAttribute("aria-pressed",on)};
+  acl.appendChild(b);io.observe(b);
+});
+var sec=document.createElement("button");sec.className="a lock glass rv";
+sec.innerHTML='<span class="ai">🔒</span><span><strong>??? Locked Achievement</strong>Tap it a few times. Trust me.</span>';
+var sc=0,done=false;
+sec.onclick=function(){
+  if(done)return;sc++;
+  var left=5-sc;
+  if(left>0){sec.querySelector("span:last-child").innerHTML="<strong>??? Locked Achievement</strong>"+left+" more tap"+(left>1?"s":"")+"…";if(!RM)sec.animate([{transform:"translateX(-5px)"},{transform:"translateX(5px)"},{transform:"none"}],{duration:200})}
+  else{done=true;sec.classList.add("lit");sec.querySelector(".ai").textContent="🔓";sec.querySelector("span:last-child").innerHTML="<strong>SECRET ACHIEVEMENT UNLOCKED:</strong>YOU'RE STUCK WITH ME, BRO 💀❤️";burst(["❤️","💀","🤝"],12)}
+};
+acl.appendChild(sec);io.observe(sec);
+
+/* last section */
+var oneDone=false;
+$("#last1").onclick=function(){
+  var p=$("#oneMore");p.textContent="Now stop acting famous because you got your own website, you absolute menace. 💀😂";
+  p.classList.add("on");burst(["❤️","💀","😂"],14);
+  if(!oneDone){oneDone=true;setTimeout(function(){$("#fade").classList.add("on");setTimeout(function(){$("#fade").classList.remove("on")},4500)},3500)}
+};
+$("#hidTroph").onclick=function(){openOv($("#ov"),"Real ones deserve appreciation too. 🏆❤️")};
+})();
+</script>
+</body>
+</html>
